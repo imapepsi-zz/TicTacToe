@@ -21,8 +21,9 @@ GameFunctions.drawBoard(gameBoard)
 if userGoesFirst:
     GameFunctions.userTurn(gameBoard, userLetter)
 else:
-    ComputerAI.compTurn(gameBoard, compLetter, ComputerAI.findEmptySpaces(gameBoard))
+    ComputerAI.compTurn(gameBoard, compLetter, userLetter, ComputerAI.findEmptySpaces(gameBoard))
 
+GameFunctions.drawBoard(gameBoard)
 # Ask user for square and mark
 # Computer's turn
 # Check for winner

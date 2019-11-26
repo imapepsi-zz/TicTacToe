@@ -46,7 +46,7 @@ def markSquare(board, letter, square):
 # Check that the square is not already marked
 def checkMove(board, square):
     if board[square] != "":
-        print("You can not go there, Please select another Square.")
+
         return False  # If can't mark square return False
     else:
         return True
@@ -55,19 +55,20 @@ def checkMove(board, square):
 # User turn
 def userTurn(board, letter):
     while True:
-        square = input("What square would you like to mark? (1 - 9): ")
+        square = int(input("What square would you like to mark? (1 - 9): "))
         if square < 1 or square > 9:
             continue
         else:
             if checkMove(board, square):
                 break
             else:
+                print("You can not go there, Please select another Square.")
                 continue # If can't mark square keep asking for a square
 
     markSquare(board, letter, square)
 
 # Check if there's a winner
-def checkWinner(b, l):
+def checkForWinner(b, l):
     """ Check if X or O has won, b = board and l = letter"""
     # Top, middle, bottom, diagonals (start from corner 1, then start from corner 3)
     return (b[1] == b[2] and b[1] == b[3] and b[1] == l) or \
