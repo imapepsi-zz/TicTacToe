@@ -19,11 +19,30 @@ print("This the Board Diagram")
 GameFunctions.drawBoard(gameBoard)
 
 if userGoesFirst:
-    GameFunctions.userTurn(gameBoard, userLetter)
-else:
-    ComputerAI.compTurn(gameBoard, compLetter, userLetter, ComputerAI.findEmptySpaces(gameBoard))
+    while True:
+        GameFunctions.userTurn(gameBoard, userLetter)
+        GameFunctions.drawBoard(gameBoard)
+        if GameFunctions.winnerMessage(gameBoard, userLetter, compLetter):
+            break
+        print("Computer's Turn")
+        ComputerAI.compTurn(gameBoard, compLetter, userLetter, ComputerAI.findEmptySpaces(gameBoard))
+        GameFunctions.drawBoard(gameBoard)
+        if GameFunctions.winnerMessage(gameBoard, userLetter, compLetter):
+            break
 
-GameFunctions.drawBoard(gameBoard)
+else:
+    while True:
+        print("Computer's Turn")
+        ComputerAI.compTurn(gameBoard, compLetter, userLetter, ComputerAI.findEmptySpaces(gameBoard))
+        GameFunctions.drawBoard(gameBoard)
+        if GameFunctions.winnerMessage(gameBoard, userLetter, compLetter):
+            break
+
+        GameFunctions.userTurn(gameBoard, userLetter)
+        GameFunctions.drawBoard(gameBoard)
+        if GameFunctions.winnerMessage(gameBoard, userLetter, compLetter):
+            break
+
 # Ask user for square and mark
 # Computer's turn
 # Check for winner

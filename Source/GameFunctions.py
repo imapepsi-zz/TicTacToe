@@ -46,7 +46,6 @@ def markSquare(board, letter, square):
 # Check that the square is not already marked
 def checkMove(board, square):
     if board[square] != "":
-
         return False  # If can't mark square return False
     else:
         return True
@@ -71,12 +70,25 @@ def userTurn(board, letter):
 def checkForWinner(b, l):
     """ Check if X or O has won, b = board and l = letter"""
     # Top, middle, bottom, diagonals (start from corner 1, then start from corner 3)
+    # Left, middle, right
     return (b[1] == b[2] and b[1] == b[3] and b[1] == l) or \
            (b[4] == b[5] and b[4] == b[6] and b[4] == l) or \
            (b[7] == b[8] and b[7] == b[9] and b[7] == l) or \
            (b[1] == b[5] and b[1] == b[9] and b[1] == l) or \
-           (b[3] == b[5] and b[3] == b[7] and b[3] == l)
+           (b[3] == b[5] and b[3] == b[7] and b[3] == l) or \
+           (b[1] == b[4] and b[1] == b[7] and b[1] == l) or \
+           (b[2] == b[5] and b[2] == b[8] and b[2] == l) or \
+           (b[3] == b[6] and b[3] == b[9] and b[3] == l)
 
+def winnerMessage(board, userLetter, compLetter):
+    if checkForWinner(board, userLetter):
+        print("You Won!")
+        return True
+    elif checkForWinner(board, compLetter):
+        print("The Computer Won! Better luck next time.")
+        return True
+    else:
+        return False
 
 
 
