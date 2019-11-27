@@ -66,6 +66,16 @@ def userTurn(board, letter):
 
     markSquare(board, letter, square)
 
+# Check if Board is full
+def checkIfFull(board):
+    count = 0
+    for key in board:
+        if board[key] != "":
+            count += 1
+
+    return count == 9
+
+
 # Check if there's a winner
 def checkForWinner(b, l):
     """ Check if X or O has won, b = board and l = letter"""

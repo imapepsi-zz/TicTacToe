@@ -24,10 +24,17 @@ if userGoesFirst:
         GameFunctions.drawBoard(gameBoard)
         if GameFunctions.winnerMessage(gameBoard, userLetter, compLetter):
             break
+        if GameFunctions.checkIfFull(gameBoard):
+            print("Board is Full. Tie")
+            break
+
         print("Computer's Turn")
         ComputerAI.compTurn(gameBoard, compLetter, userLetter, ComputerAI.findEmptySpaces(gameBoard))
         GameFunctions.drawBoard(gameBoard)
         if GameFunctions.winnerMessage(gameBoard, userLetter, compLetter):
+            break
+        if GameFunctions.checkIfFull(gameBoard):
+            print("Board is Full. Tie")
             break
 
 else:
@@ -37,11 +44,20 @@ else:
         GameFunctions.drawBoard(gameBoard)
         if GameFunctions.winnerMessage(gameBoard, userLetter, compLetter):
             break
+        if GameFunctions.checkIfFull(gameBoard):
+            print("Board is Full. Tie")
+            break
 
         GameFunctions.userTurn(gameBoard, userLetter)
         GameFunctions.drawBoard(gameBoard)
         if GameFunctions.winnerMessage(gameBoard, userLetter, compLetter):
             break
+        if GameFunctions.checkIfFull(gameBoard):
+            print("Board is Full. Tie")
+            break
+
+
+
 
 # Ask user for square and mark
 # Computer's turn
