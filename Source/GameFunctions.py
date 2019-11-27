@@ -27,6 +27,8 @@ def getCompLetter(user):
         return "O"
     elif user == "O":
         return "X"
+    else:
+        return None
 
 
 # Who will go first
@@ -74,7 +76,6 @@ def checkIfFull(board):
             count += 1
 
     return count == 9
-
 
 # Check if there's a winner
 def checkForWinner(b, l):
